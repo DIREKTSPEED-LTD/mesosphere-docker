@@ -6,7 +6,7 @@ RUN sudo apt-get -y install zookeeperd
 RUN echo 1 | sudo dd of=/var/lib/zookeeper/myid
 
 # Install mesos.
-RUN sudo apt-get -y install mesos
+RUN sudo apt-get -y install mesos /etc/mesos-slave
 RUN sudo mkdir -p /etc/mesos-master
 RUN echo in_memory | sudo dd of=/etc/mesos-master/registry
 RUN echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
