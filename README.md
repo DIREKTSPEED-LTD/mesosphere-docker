@@ -58,6 +58,8 @@ You then can goto the Marathon's web page and submit a job.
 
          docker run -d \
          --entrypoint="mesos-slave" \
+         -v /var/run/docker.sock:/var/run/docker.sock \
+         -v /usr/bin/docker:/usr/bin/docker \
          -e "MESOS_MASTER=zk://${HOST_IP}:2181/mesos" \
          -e "MESOS_LOG_DIR=/var/log/mesos" \
          -e "MESOS_LOGGING_LEVEL=INFO" \
@@ -150,6 +152,8 @@ For this setup, we will need 2 servers with Docker installed on it.
 
          docker run -d \
          --entrypoint="mesos-slave" \
+         -v /var/run/docker.sock:/var/run/docker.sock \
+         -v /usr/bin/docker:/usr/bin/docker \
          -e "MESOS_MASTER=zk://${HOST_IP_1}:2181,${HOST_IP_2}:2181/mesos" \
          -e "MESOS_LOG_DIR=/var/log/mesos" \
          -e "MESOS_LOGGING_LEVEL=INFO" \
@@ -159,6 +163,8 @@ For this setup, we will need 2 servers with Docker installed on it.
 
          docker run -d \
          --entrypoint="mesos-slave" \
+         -v /var/run/docker.sock:/var/run/docker.sock \
+         -v /usr/bin/docker:/usr/bin/docker \
          -e "MESOS_MASTER=zk://${HOST_IP_1}:2181,${HOST_IP_2}:2181/mesos" \
          -e "MESOS_LOG_DIR=/var/log/mesos" \
          -e "MESOS_LOGGING_LEVEL=INFO" \
