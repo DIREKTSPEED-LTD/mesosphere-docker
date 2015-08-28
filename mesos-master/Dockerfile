@@ -9,6 +9,7 @@ RUN echo 1 | sudo dd of=/var/lib/zookeeper/myid
 RUN sudo apt-get -y install mesos
 RUN sudo mkdir -p /etc/mesos-master
 RUN echo in_memory | sudo dd of=/etc/mesos-master/registry
+RUN echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
 
 # Not exposing port b/c you have to run the master in bridge net mode
 #EXPOSE 5050
